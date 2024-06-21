@@ -16,6 +16,7 @@
 		62EB75022C24CB92009F923D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB75012C24CB92009F923D /* Article.swift */; };
 		62EB75042C24CD1F009F923D /* ArticleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB75032C24CD1F009F923D /* ArticleResponse.swift */; };
 		62EB75092C24CE2C009F923D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB75082C24CE2C009F923D /* HomeViewModel.swift */; };
+		62EB750C2C24ECE6009F923D /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB750B2C24ECE6009F923D /* NewsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		62EB75012C24CB92009F923D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		62EB75032C24CD1F009F923D /* ArticleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleResponse.swift; sourceTree = "<group>"; };
 		62EB75082C24CE2C009F923D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		62EB750B2C24ECE6009F923D /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		62EB74FA2C24C6A7009F923D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				62EB750A2C24ECDB009F923D /* NewsCell */,
 				62EB74FD2C24C728009F923D /* Header */,
 				62EB74FB2C24C6B8009F923D /* HomeView.swift */,
 			);
@@ -128,6 +131,14 @@
 				62EB75082C24CE2C009F923D /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		62EB750A2C24ECDB009F923D /* NewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				62EB750B2C24ECE6009F923D /* NewsCell.swift */,
+			);
+			path = NewsCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				62EB74ED2C24C514009F923D /* NewsApp.swift in Sources */,
 				62EB74FF2C24C742009F923D /* HeaderView.swift in Sources */,
 				62EB75022C24CB92009F923D /* Article.swift in Sources */,
+				62EB750C2C24ECE6009F923D /* NewsCell.swift in Sources */,
 				62EB75042C24CD1F009F923D /* ArticleResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

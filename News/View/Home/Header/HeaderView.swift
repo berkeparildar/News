@@ -10,7 +10,7 @@ import SwiftUI
 struct HeaderView: View {
     var body: some View {
         HStack {
-            VStack {
+            VStack (alignment: .leading) {
                 Text("Your briefing")
                     .font(.title)
                     .bold()

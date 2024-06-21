@@ -13,11 +13,14 @@ struct HomeView: View {
         NavigationStack {
             switch viewModel.status {
             case .success:
-                HeaderView()
-                List(viewModel.articles) { item in
-                    Text(item.title!)
+                ScrollView {
+                    HeaderView()
+                    ForEach(viewModel.articles) { article in
+                        NewsCell(article: article)
+                    }
                 }
-                .navigationTitle("Items")
+                .navigationTitle("News")
+                .navigationBarTitleDisplayMode(.inline)
             default:
                 ProgressView()
             }
