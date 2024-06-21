@@ -28,7 +28,8 @@ struct HeaderView: View {
             .background(in: .capsule)
             .backgroundStyle(.regularMaterial)
         }
-        .padding(8)
+        .listRowSeparator(.hidden, edges: .all)
+        .padding(.bottom, 16)
     }
 }
 

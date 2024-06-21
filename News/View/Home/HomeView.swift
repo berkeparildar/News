@@ -9,29 +9,35 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
+    
     var body: some View {
         NavigationStack {
             switch viewModel.status {
             case .success:
-                ScrollView {
+                List {
                     HeaderView()
-                    ForEach(viewModel.articles) { article in
-                        NewsCell(article: article)
-                    }
+                    GroupTitle(titleText: "Top stories")
+                    ArticleGroup(viewModel: viewModel)
+                    ProgressView()
+                        .onAppear(perform: {
+                            viewModel.fetchTopArticles()
+                        })
                 }
+                .listRowSpacing(0)
+                .listStyle(.plain)
                 .navigationTitle("News")
                 .navigationBarTitleDisplayMode(.inline)
             default:
                 ProgressView()
             }
         }
-        .onAppear(perform: {
+        .onAppear {
             if viewModel.status == .notStarted {
                 Task {
                     viewModel.fetchTopArticles()
                 }
             }
-        })
+        }
     }
 }
 

@@ -8,22 +8,29 @@
 import Foundation
 
 final class HomeViewModel: ObservableObject {
+    
     enum FetchStatus {
         case notStarted
         case fetching
         case success
     }
     
-    private let baseURL = URL(string: "https://newsapi.org/v2/top-headlines")!
     @Published private(set) var status = FetchStatus.notStarted
-    var articles: [Article] = []
+    @Published var topArticles: [Article] = []
+    private let baseURL = URL(string: "https://newsapi.org/v2/top-headlines")!
+    private var currentPage = 1
+
     
     func fetchTopArticles() {
-        status = .fetching
+        if topArticles.count == 0 {
+            status = .fetching
+        }
         var fetchComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         fetchComponents?.queryItems = [
             URLQueryItem(name: "country", value: "us"),
-            URLQueryItem(name: "apiKey", value: "11c24ef23d0048c385f60c6f9b106233")
+            URLQueryItem(name: "apiKey", value: "11c24ef23d0048c385f60c6f9b106233"),
+            URLQueryItem(name: "pageSize", value: "20"),
+            URLQueryItem(name: "page", value: "\(currentPage)")
         ]
         guard let url = fetchComponents?.url else {
             return
@@ -43,10 +50,12 @@ final class HomeViewModel: ObservableObject {
                 decoder.dateDecodingStrategy = .iso8601
                 let response = try decoder.decode(ArticleResponse.self, from: data)
                 DispatchQueue.main.async {
+                    if self.topArticles.isEmpty {
+                        self.status = .success
+                    }
                     let articles = response.articles
-                    self.articles = articles
-                    self.status = .success
-                    
+                    self.topArticles.append(contentsOf: articles.filter( { $0.title != "[Removed]" }))
+                    self.currentPage += 1
                 }
             } catch let decodingError {
                 print("There was an error during decoding \(decodingError.localizedDescription)")
