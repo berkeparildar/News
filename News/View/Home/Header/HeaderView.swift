@@ -15,6 +15,8 @@ struct HeaderView: View {
                     .font(.title)
                     .bold()
                 Text("Thursday, June 20")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
             }
             Spacer()
             HStack {

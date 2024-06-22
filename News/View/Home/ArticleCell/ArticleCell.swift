@@ -50,7 +50,7 @@ struct ArticleCell: View {
             }
             .padding(.top, 2)
             Divider()
-                .background(.regularMaterial)
+                .background(.secondary)
                 .padding(.top, 4)
         }
     }
