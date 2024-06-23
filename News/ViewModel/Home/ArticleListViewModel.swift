@@ -7,7 +7,21 @@
 
 import Foundation
 
-final class HomeViewModel: ObservableObject {
+enum FetchCategory: String {
+    case all
+    case business
+    case entertainment
+    case health
+    case science
+    case sports
+    case technology
+}
+
+final class ArticleListViewModel: ObservableObject {
+    
+    init(fetchCategory: FetchCategory) {
+        self.fetchCategory = fetchCategory
+    }
     
     enum FetchStatus {
         case notStarted
@@ -15,23 +29,28 @@ final class HomeViewModel: ObservableObject {
         case success
     }
     
+    let fetchCategory: FetchCategory
     @Published private(set) var status = FetchStatus.notStarted
     @Published var topArticles: [Article] = []
     private let baseURL = URL(string: "https://newsapi.org/v2/top-headlines")!
     private var currentPage = 1
 
     
-    func fetchTopArticles() {
+    func fetchArticles() {
+        print(currentPage)
         if topArticles.count == 0 {
             status = .fetching
         }
         var fetchComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         fetchComponents?.queryItems = [
             URLQueryItem(name: "country", value: "us"),
-            URLQueryItem(name: "apiKey", value: "11c24ef23d0048c385f60c6f9b106233"),
+            URLQueryItem(name: "apiKey", value: "862aa29a7ec149c0b0bbc2c1f4b89f2b"),
             URLQueryItem(name: "pageSize", value: "20"),
             URLQueryItem(name: "page", value: "\(currentPage)")
         ]
+        if fetchCategory != .all {
+            fetchComponents?.queryItems?.append(URLQueryItem(name: "category", value: fetchCategory.rawValue))
+        }
         guard let url = fetchComponents?.url else {
             return
         }
@@ -58,6 +77,7 @@ final class HomeViewModel: ObservableObject {
                     self.currentPage += 1
                 }
             } catch let decodingError {
+                print(url)
                 print("There was an error during decoding \(decodingError.localizedDescription)")
                 return
             }

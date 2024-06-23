@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ArticleCell: View {
-    let article: Article
-    
+    let article: Article    
     var body: some View {
         VStack {
             HStack {
@@ -24,8 +23,14 @@ struct ArticleCell: View {
                         .fontWeight(.semibold)
                         .lineLimit(nil)
                         .fixedSize(horizontal: false, vertical: true)
-                }
-                .padding(.top, 0)
+                        .padding(.bottom, 2)
+                    HStack {
+                        Text("8h")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                    }
+                }                
                 Spacer()
                 if let imageURL = article.urlToImage {
                     AsyncImage(url: imageURL, content: { image in
@@ -35,23 +40,13 @@ struct ArticleCell: View {
                             .frame(width: 100, height: 100)
                             .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(.trailing, 8)
                     }, placeholder: {
                         ProgressView()
                             .frame(width: 100, height: 100)
                     })
                 }
             }
-            HStack {
-                Text("8h")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                Spacer()
-            }
-            .padding(.top, 2)
-            Divider()
-                .background(.secondary)
-                .padding(.top, 4)
         }
+        
     }
 }

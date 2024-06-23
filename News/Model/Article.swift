@@ -8,9 +8,7 @@
 import Foundation
 
 struct Article: Decodable, Identifiable, Equatable {
-    
     var id: UUID { UUID() }
-
     let source: ArticleSource
     let author: String?
     let title: String?
@@ -41,6 +39,3 @@ struct Article: Decodable, Identifiable, Equatable {
         publishedAt = try container.decodeIfPresent(String.self, forKey: .publishedAt)
     }
 }
-
-
-
