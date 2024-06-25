@@ -10,21 +10,19 @@ import SwiftUI
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab = 0
-    
+    @State private var selectedTab: Int? = 0
+    @State private var selectedCategory: Int? = 0
     private let trendingView = ArticleListView(viewModel: ArticleListViewModel(fetchCategory: .all))
-    private let forYouView = PersonalFeedView()
-    private let otherViewB = Text("b")
     private let otherViewC = Text("c")
     
     var body: some View {
         VStack {
             ZStack {
-                forYouView
+                PersonalFeedView(selectedTab: $selectedTab, selectedCategory: $selectedCategory)
                     .opacity(selectedTab == 0 ? 1 : 0)
                 trendingView
                     .opacity(selectedTab == 1 ? 1 : 0)
-                otherViewB
+                CategorizedFeedView(selectedCategory: $selectedCategory)
                     .opacity(selectedTab == 2 ? 1 : 0)
                 otherViewC
                     .opacity(selectedTab == 3 ? 1 : 0)
@@ -36,8 +34,8 @@ struct ContentView: View {
     }
 }
 struct CustomTabBar: View {
-    @Binding var selectedTab: Int
-    let tabIcons = ["house", "chart.line.uptrend.xyaxis", "heart", "books.vertical"]
+    @Binding var selectedTab: Int?
+    let tabIcons = ["house", "chart.line.uptrend.xyaxis", "globe", "books.vertical"]
     var body: some View {
         VStack (spacing: 0) {
             Rectangle()

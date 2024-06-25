@@ -9,20 +9,26 @@ import SwiftUI
 
 struct PersonalFeedView: View {
     @StateObject var viewModel = ForYouViewModel()
+    @Binding var selectedTab: Int?
+    @Binding var selectedCategory: Int?
     var body: some View {
         NavigationStack {
             switch viewModel.status {
             case .success:
                 List {
                     ForEach(Array(viewModel.forYouArticles.enumerated()), id: \.offset) { index, articles in
-                        NavigationLink(destination: ArticleListView(viewModel: ArticleListViewModel(fetchCategory: FetchCategory(rawValue: viewModel.userCategories[index]) ?? .all))) {
-                            HStack {
-                                Text(viewModel.userCategories[index].capitalized)
-                                    .font(.system(size: 24))
-                                    .bold()
-                                    .foregroundStyle(.blue)
-                                Spacer()
-                            }
+                        HStack {
+                            Text(viewModel.userCategories[index].capitalized)
+                                .font(.system(size: 24))
+                                .bold()
+                                .foregroundStyle(.blue)
+                                .onTapGesture {
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        selectedTab = 2
+                                        selectedCategory = 3                                    }
+                                    
+                                }
+                            Spacer()
                         }
                         .listRowSeparator(.hidden)
                         ArticleGroupView(articles: articles)
@@ -72,6 +78,3 @@ struct PersonalFeedView: View {
     }
 }
 
-#Preview {
-    PersonalFeedView()
-}

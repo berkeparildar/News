@@ -8,44 +8,47 @@
 import SwiftUI
 
 struct CategorizedFeedView: View {
-    private var categories = ["business" ,"entertainment", "general", "health","science","sports","technology"]
-    @State var firstScrollIndex = 0
-    @State var secondScrollIndex = 0
+    private let categories = ["business" , "sports", "health", "science", "entertainment", "technology"]
+    @Binding var selectedCategory: Int?
     var body: some View {
-        VStack {
-            ScrollViewReader { proxyOne in
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(categories, id: \.self) { category in
-                            Text(category)
-                                .font(.title)
-                                .id(category)
-                                .onTapGesture {
-                                    proxyOne.scrollTo(category, anchor: .center)
-                                }
+        NavigationStack {
+            GeometryReader { reader in
+                VStack (spacing: 16) {
+                    CategoryListView(categories: categories, selectedCategory: $selectedCategory)
+                        .frame(height: 16)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(spacing: 0) {
+                            ForEach(categories.indices, id: \.self) { index in
+                                ArticleListView(viewModel: ArticleListViewModel(fetchCategory: FetchCategory(rawValue: categories[index])!))
+                                    .tag(index)
+                                    .frame(width: reader.size.width, height: reader.size.height)
+
+                            }
                         }
+                        .scrollTargetLayout()
                     }
+                    .scrollTargetBehavior(.paging)
+                    .scrollPosition(id: $selectedCategory)
                 }
             }
-            ScrollViewReader { proxyTwo in
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(categories, id: \.self) { category in
-                            Text(category)
-                                .font(.title)
-                                .id(category)
-                                .onTapGesture {
-                                    proxyTwo.scrollTo(category, anchor: .center)
-                                }
-                        }
+            .navigationTitle("Headlines")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print("Search tapped")
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundStyle(.foreground)
+                            .font(.subheadline)
                     }
                 }
-            }
+        }
         }
     }
 }
 
 #Preview {
-    CategorizedFeedView()
+    CategorizedFeedView(selectedCategory: .constant(0))
 }
 

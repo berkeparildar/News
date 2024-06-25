@@ -20,18 +20,6 @@ struct ArticleListView: View {
                             viewModel.fetchArticles()
                         })
                 }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            print("Search tapped")
-                        }) {
-                            Image(systemName: "magnifyingglass")
-                        }
-                    }
-                }
-                .navigationTitle(viewModel.fetchCategory == .all ? "Top Stories" : viewModel.fetchCategory.rawValue.capitalized)
-                .toolbarBackground(.background, for: .navigationBar)
-                .toolbarBackground(.visible, for: .navigationBar)
                 .listRowSpacing(0)
                 .listStyle(.plain)
                 .navigationBarTitleDisplayMode(.inline)
