@@ -13,17 +13,18 @@ struct CategorizedFeedView: View {
     var body: some View {
         NavigationStack {
             GeometryReader { reader in
-                VStack (spacing: 16) {
+                VStack (spacing: 0) {
                     CategoryListView(categories: categories, selectedCategory: $selectedCategory)
-                        .frame(height: 16)
+                        .frame(height: 24)
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 0) {
                             ForEach(categories.indices, id: \.self) { index in
-                                ArticleListView(viewModel: ArticleListViewModel(fetchCategory: FetchCategory(rawValue: categories[index])!))
+                                ArticleListView(viewModel: ArticleListViewModel(fetchCategory: FetchCategory(rawValue: categories[index])!), isSmallCell: true)
                                     .tag(index)
                                     .frame(width: reader.size.width, height: reader.size.height)
 
                             }
+                            .padding(.top, 20)
                         }
                         .scrollTargetLayout()
                     }

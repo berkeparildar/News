@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ArticleGroupView: View {
     var articles: [Article]
+    var isSmallCell: Bool
     var body: some View {
         ForEach(0..<articles.count, id: \.self) { index in
             ZStack {
@@ -16,11 +17,15 @@ struct ArticleGroupView: View {
                     EmptyView()
                 }
                 .opacity(0)
-                ArticleCell(article: articles[index])
+                if isSmallCell {
+                    SmallArticleCellView(article: articles[index])
+                        .listRowSeparator(.hidden)
+                } else {
+                    LargeArticleCellView(article: articles[index])
+                        .listRowSeparator(.visible)
+                }
             }
-            .listRowSeparator(.hidden)
         }
-        .listRowSeparator(.hidden)
         .listRowSpacing(0)
     }
 }

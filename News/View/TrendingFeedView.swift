@@ -9,7 +9,12 @@ import SwiftUI
 
 struct TrendingFeedView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ArticleListView(viewModel: ArticleListViewModel(fetchCategory: .all), isSmallCell: true)
+                .navigationTitle("Top Stories")
+                .toolbarTitleDisplayMode(.inline)
+                .toolbarBackground(.background, for: .navigationBar)
+        }
     }
 }
 

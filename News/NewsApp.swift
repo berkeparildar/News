@@ -9,6 +9,16 @@ import SwiftUI
 
 @main
 struct NewsApp: App {
+    
+    init () { setupUserDefaults() }
+    
+    private func setupUserDefaults() {
+        UserDefaults.standard.register(defaults: [
+            UserDefaultKeys.hasSeenOnboarding.rawValue: false,
+            UserDefaultKeys.articleCategories.rawValue: ["business" , "sports", "health", "science", "entertainment", "technology"]
+        ])
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

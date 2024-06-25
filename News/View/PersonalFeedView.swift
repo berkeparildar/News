@@ -16,6 +16,7 @@ struct PersonalFeedView: View {
             switch viewModel.status {
             case .success:
                 List {
+                    PersonalHeaderView()
                     ForEach(Array(viewModel.forYouArticles.enumerated()), id: \.offset) { index, articles in
                         HStack {
                             Text(viewModel.userCategories[index].capitalized)
@@ -25,43 +26,20 @@ struct PersonalFeedView: View {
                                 .onTapGesture {
                                     withAnimation(.easeInOut(duration: 0.3)) {
                                         selectedTab = 2
-                                        selectedCategory = 3                                    }
+                                        if let retrievedCategories = UserDefaults.standard.stringArray(forKey: UserDefaultKeys.articleCategories.rawValue) {
+                                            selectedCategory = retrievedCategories.firstIndex(of: viewModel.userCategories[index])
+                                        }                           }
                                     
                                 }
                             Spacer()
                         }
                         .listRowSeparator(.hidden)
-                        ArticleGroupView(articles: articles)
+                        ArticleGroupView(articles: articles, isSmallCell: false)
                     }
                 }
                 .listStyle(.plain)
+                .navigationTitle("News")
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        VStack (alignment: .leading) {
-                            Text("Your briefing")
-                                .font(.title3)
-                                .bold()
-                            Text("Thursday, June 20")
-                                .font(.footnote)
-                                .foregroundStyle(.secondary)
-                                .padding(.bottom, 2)
-                        }
-                        .padding(.leading, 4)
-                    }
-                    ToolbarItem(placement: .topBarTrailing) {
-                        HStack {
-                            Text("29'C")
-                                .bold()
-                            Image(systemName: "sun.max")
-                                .font(.title3)
-                                .foregroundStyle(.yellow)
-                        }
-                        .padding(EdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8))
-                        .background(in: .capsule)
-                        .backgroundStyle(.regularMaterial)
-                    }
-                }
                 .toolbarBackground(.background, for: .navigationBar)
             case .fetching:
                 ProgressView()

@@ -12,7 +12,6 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTab: Int? = 0
     @State private var selectedCategory: Int? = 0
-    private let trendingView = ArticleListView(viewModel: ArticleListViewModel(fetchCategory: .all))
     private let otherViewC = Text("c")
     
     var body: some View {
@@ -20,7 +19,7 @@ struct ContentView: View {
             ZStack {
                 PersonalFeedView(selectedTab: $selectedTab, selectedCategory: $selectedCategory)
                     .opacity(selectedTab == 0 ? 1 : 0)
-                trendingView
+                TrendingFeedView()
                     .opacity(selectedTab == 1 ? 1 : 0)
                 CategorizedFeedView(selectedCategory: $selectedCategory)
                     .opacity(selectedTab == 2 ? 1 : 0)

@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ArticleListView: View {
     @StateObject var viewModel: ArticleListViewModel
+    let isSmallCell: Bool
     var body: some View {
         NavigationStack {
             switch viewModel.status {
             case .success:
                 List {
-                    ArticleGroupView(articles: viewModel.topArticles)
+                    ArticleGroupView(articles: viewModel.topArticles, isSmallCell: isSmallCell)
                     ProgressView()
                         .onAppear(perform: {
                             viewModel.fetchArticles()
@@ -22,12 +23,10 @@ struct ArticleListView: View {
                 }
                 .listRowSpacing(0)
                 .listStyle(.plain)
-                .navigationBarTitleDisplayMode(.inline)
             default:
                 ProgressView()
             }
         }
-       
         .onAppear {
             if viewModel.status == .notStarted {
                 Task {
