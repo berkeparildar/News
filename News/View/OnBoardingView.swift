@@ -68,7 +68,9 @@ struct OnBoardingView: View {
                     Spacer()
                     Button {
                         viewModel.seenOnBoarding()
-                        hasSeenOnboaring = true
+                        withAnimation {
+                            hasSeenOnboaring = true
+                        }
                     } label: {
                         Text("Explore now")
                     }
