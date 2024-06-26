@@ -9,14 +9,15 @@ import SwiftUI
 
 struct CustomTabBar: View {
     @Binding var selectedTab: Int?
-    let tabIcons = ["house", "chart.line.uptrend.xyaxis", "globe", "books.vertical"]
+    let tabIcons = ["house", "chart.line.uptrend.xyaxis", "globe"]
     var body: some View {
         VStack (spacing: 0) {
             Rectangle()
                 .frame(height: 1)
                 .foregroundStyle(.separator)
-            HStack(spacing: 0) {
+            HStack {
                 ForEach(tabIcons.indices, id: \.self) { index in
+                    Spacer()
                     Button(action: {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             selectedTab = index
@@ -33,9 +34,10 @@ struct CustomTabBar: View {
                             Image(systemName: tabIcons[index])
                                 .foregroundColor(selectedTab == index ? .white : .gray)
                         }
-                        .frame(width: 90, height: 44)
+                        .frame(width: 80, height: 48)
                     }
                     .buttonStyle(StaticButtonStyle())
+                    Spacer()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: 44)

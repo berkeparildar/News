@@ -15,7 +15,11 @@ final class ForYouViewModel: ObservableObject {
     @Published var forYouArticles: [[Article]] = []
     @Published var status = FetchStatus.notStarted
     private let baseURL = URL(string: "https://newsapi.org/v2/top-headlines")!
-    var userCategories = ["entertainment", "business", "health"]
+    var userCategories : [String] = []
+    
+    init () {
+        self.userCategories = UserDefaults.standard.stringArray(forKey: "userCategories")!
+    }
     
     func fetchUserArticles() {
         guard status == .notStarted else { return }
@@ -27,7 +31,7 @@ final class ForYouViewModel: ObservableObject {
             var fetchComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
             fetchComponents?.queryItems = [
                 URLQueryItem(name: "country", value: "us"),
-                URLQueryItem(name: "apiKey", value: "11c24ef23d0048c385f60c6f9b106233"),
+                URLQueryItem(name: "apiKey", value: "862aa29a7ec149c0b0bbc2c1f4b89f2b"),
                 URLQueryItem(name: "pageSize", value: "10"),
                 URLQueryItem(name: "category", value: category)
             ]

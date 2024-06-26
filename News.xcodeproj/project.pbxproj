@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		622BD9902C2A17840024E315 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622BD98F2C2A17840024E315 /* CategoryListView.swift */; };
 		622BD9922C2A25790024E315 /* TrendingFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622BD9912C2A25790024E315 /* TrendingFeedView.swift */; };
+		623BF1EB2C2C8C8B00C42853 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BF1EA2C2C8C8B00C42853 /* LocationManager.swift */; };
 		62644D9B2C25AE9E00B09629 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62644D9A2C25AE9E00B09629 /* ArticleDetailView.swift */; };
 		626667AC2C25966500BC6E8C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626667AB2C25966500BC6E8C /* WebView.swift */; };
 		6266D9952C274A8000864C41 /* PersonalFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6266D9942C274A8000864C41 /* PersonalFeedView.swift */; };
@@ -23,6 +24,9 @@
 		62716FC62C2B6B880030DD3F /* ArticleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62716FC52C2B6B880030DD3F /* ArticleSearchView.swift */; };
 		62716FC82C2B715D0030DD3F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62716FC72C2B715D0030DD3F /* SearchViewModel.swift */; };
 		62716FCA2C2B76590030DD3F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62716FC92C2B76590030DD3F /* CustomTabBar.swift */; };
+		62716FCC2C2C2EDD0030DD3F /* SourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62716FCB2C2C2EDD0030DD3F /* SourcesView.swift */; };
+		62716FCE2C2C46190030DD3F /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62716FCD2C2C46190030DD3F /* OnBoardingView.swift */; };
+		62716FD02C2C4E980030DD3F /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62716FCF2C2C4E980030DD3F /* OnBoardingViewModel.swift */; };
 		62EB74ED2C24C514009F923D /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB74EC2C24C514009F923D /* NewsApp.swift */; };
 		62EB74EF2C24C514009F923D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EB74EE2C24C514009F923D /* ContentView.swift */; };
 		62EB74F12C24C516009F923D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62EB74F02C24C516009F923D /* Assets.xcassets */; };
@@ -37,6 +41,7 @@
 /* Begin PBXFileReference section */
 		622BD98F2C2A17840024E315 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		622BD9912C2A25790024E315 /* TrendingFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingFeedView.swift; sourceTree = "<group>"; };
+		623BF1EA2C2C8C8B00C42853 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		62644D9A2C25AE9E00B09629 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		626667AB2C25966500BC6E8C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		6266D9942C274A8000864C41 /* PersonalFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFeedView.swift; sourceTree = "<group>"; };
@@ -51,6 +56,9 @@
 		62716FC52C2B6B880030DD3F /* ArticleSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSearchView.swift; sourceTree = "<group>"; };
 		62716FC72C2B715D0030DD3F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		62716FC92C2B76590030DD3F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		62716FCB2C2C2EDD0030DD3F /* SourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesView.swift; sourceTree = "<group>"; };
+		62716FCD2C2C46190030DD3F /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		62716FCF2C2C4E980030DD3F /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		62EB74E92C24C514009F923D /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62EB74EC2C24C514009F923D /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		62EB74EE2C24C514009F923D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 			children = (
 				62716FBB2C2B33DD0030DD3F /* UserDefaultKeys.swift */,
 				62716FBD2C2B3B470030DD3F /* Extensions.swift */,
+				623BF1EA2C2C8C8B00C42853 /* LocationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -155,6 +164,8 @@
 				62EB750B2C24ECE6009F923D /* SmallArticleCellView.swift */,
 				62716FBF2C2B5D720030DD3F /* LargeArticleCellView.swift */,
 				62716FC92C2B76590030DD3F /* CustomTabBar.swift */,
+				62716FCB2C2C2EDD0030DD3F /* SourcesView.swift */,
+				62716FCD2C2C46190030DD3F /* OnBoardingView.swift */,
 				626667AA2C25965000BC6E8C /* ArticleDetail */,
 			);
 			path = View;
@@ -166,6 +177,7 @@
 				6266D9972C274DCC00864C41 /* PersonalFeedViewModel.swift */,
 				62EB75082C24CE2C009F923D /* ArticleListViewModel.swift */,
 				62716FC72C2B715D0030DD3F /* SearchViewModel.swift */,
+				62716FCF2C2C4E980030DD3F /* OnBoardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -241,8 +253,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				62716FC82C2B715D0030DD3F /* SearchViewModel.swift in Sources */,
+				62716FD02C2C4E980030DD3F /* OnBoardingViewModel.swift in Sources */,
 				62716FC62C2B6B880030DD3F /* ArticleSearchView.swift in Sources */,
 				62716FBC2C2B33DD0030DD3F /* UserDefaultKeys.swift in Sources */,
+				62716FCE2C2C46190030DD3F /* OnBoardingView.swift in Sources */,
+				62716FCC2C2C2EDD0030DD3F /* SourcesView.swift in Sources */,
 				62716FC42C2B69650030DD3F /* CategoryTitleView.swift in Sources */,
 				62EB74FC2C24C6B8009F923D /* ArticleListView.swift in Sources */,
 				62716FCA2C2B76590030DD3F /* CustomTabBar.swift in Sources */,
@@ -263,6 +278,7 @@
 				622BD9902C2A17840024E315 /* CategoryListView.swift in Sources */,
 				6266D99A2C2797BB00864C41 /* ArticleGroupView.swift in Sources */,
 				62716FC02C2B5D720030DD3F /* LargeArticleCellView.swift in Sources */,
+				623BF1EB2C2C8C8B00C42853 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,11 +415,13 @@
 				DEVELOPMENT_TEAM = 8X8P7X3D8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to provide real-time weather information";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,11 +446,13 @@
 				DEVELOPMENT_TEAM = 8X8P7X3D8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to provide real-time weather information";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

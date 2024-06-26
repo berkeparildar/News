@@ -44,7 +44,7 @@ final class ArticleListViewModel: ObservableObject {
         var fetchComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         fetchComponents?.queryItems = [
             URLQueryItem(name: "country", value: "us"),
-            URLQueryItem(name: "apiKey", value: "11c24ef23d0048c385f60c6f9b106233"),
+            URLQueryItem(name: "apiKey", value: "862aa29a7ec149c0b0bbc2c1f4b89f2b"),
             URLQueryItem(name: "pageSize", value: "20"),
             URLQueryItem(name: "page", value: "\(currentPage)")
         ]
