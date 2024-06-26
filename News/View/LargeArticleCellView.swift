@@ -36,7 +36,7 @@ struct LargeArticleCellView: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .padding(.bottom, 2)
                         HStack {
-                            Text("8h")
+                            Text(article.publishedAt.flatMap(Date.from(iso8601String:))?.timeAgoDisplay() ?? "recently")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             Spacer()
