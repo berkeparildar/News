@@ -18,22 +18,16 @@ struct PersonalFeedView: View {
                 List {
                     PersonalHeaderView()
                     ForEach(Array(viewModel.forYouArticles.enumerated()), id: \.offset) { index, articles in
-                        HStack {
-                            Text(viewModel.userCategories[index].capitalized)
-                                .font(.system(size: 24))
-                                .bold()
-                                .foregroundStyle(.blue)
-                                .onTapGesture {
-                                    withAnimation(.easeInOut(duration: 0.3)) {
-                                        selectedTab = 2
-                                        if let retrievedCategories = UserDefaults.standard.stringArray(forKey: UserDefaultKeys.articleCategories.rawValue) {
-                                            selectedCategory = retrievedCategories.firstIndex(of: viewModel.userCategories[index])
-                                        }                           }
-                                    
-                                }
-                            Spacer()
-                        }
-                        .listRowSeparator(.hidden)
+                        CategoryTitleView(title: viewModel.userCategories[index].capitalized)
+                            .onTapGesture {
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    selectedTab = 2
+                                    if let retrievedCategories = UserDefaults.standard.stringArray(forKey: UserDefaultKeys.articleCategories.rawValue) {
+                                        selectedCategory = retrievedCategories.firstIndex(of: viewModel.userCategories[index])
+                                    }                           }
+                                
+                            }
+                        
                         ArticleGroupView(articles: articles, isSmallCell: false)
                     }
                 }
@@ -41,6 +35,15 @@ struct PersonalFeedView: View {
                 .navigationTitle("News")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbarBackground(.background, for: .navigationBar)
+                .toolbar {
+                    NavigationLink(destination: {
+                        ArticleSearchView()
+                    }, label: {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundStyle(.foreground)
+                            .font(.subheadline)
+                    })
+                }
             case .fetching:
                 ProgressView()
             case .failure:

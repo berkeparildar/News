@@ -15,14 +15,14 @@ struct CategorizedFeedView: View {
             GeometryReader { reader in
                 VStack (spacing: 0) {
                     CategoryListView(categories: categories, selectedCategory: $selectedCategory)
-                        .frame(height: 24)
+                        .frame(height: 32)
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 0) {
                             ForEach(categories.indices, id: \.self) { index in
                                 ArticleListView(viewModel: ArticleListViewModel(fetchCategory: FetchCategory(rawValue: categories[index])!), isSmallCell: true)
                                     .tag(index)
                                     .frame(width: reader.size.width, height: reader.size.height)
-
+                                
                             }
                             .padding(.top, 20)
                         }
@@ -35,16 +35,14 @@ struct CategorizedFeedView: View {
             .navigationTitle("Headlines")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        print("Search tapped")
-                    }) {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundStyle(.foreground)
-                            .font(.subheadline)
-                    }
-                }
-        }
+                NavigationLink(destination: {
+                    ArticleSearchView()
+                }, label: {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundStyle(.foreground)
+                        .font(.subheadline)
+                })
+            }
         }
     }
 }

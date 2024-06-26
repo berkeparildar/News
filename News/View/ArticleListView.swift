@@ -21,7 +21,6 @@ struct ArticleListView: View {
                             viewModel.fetchArticles()
                         })
                 }
-                .listRowSpacing(0)
                 .listStyle(.plain)
             default:
                 ProgressView()

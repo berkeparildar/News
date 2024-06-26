@@ -14,7 +14,19 @@ struct TrendingFeedView: View {
                 .navigationTitle("Top Stories")
                 .toolbarTitleDisplayMode(.inline)
                 .toolbarBackground(.background, for: .navigationBar)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: {
+                            ArticleSearchView()
+                        }, label: {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundStyle(.foreground)
+                                .font(.subheadline)
+                        })
+                    }
+                }
         }
+        
     }
 }
 

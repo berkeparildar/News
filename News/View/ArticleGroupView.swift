@@ -19,14 +19,12 @@ struct ArticleGroupView: View {
                 .opacity(0)
                 if isSmallCell {
                     SmallArticleCellView(article: articles[index])
-                        .listRowSeparator(.hidden)
                 } else {
                     LargeArticleCellView(article: articles[index])
-                        .listRowSeparator(.visible)
                 }
             }
         }
-        .listRowSpacing(0)
+        .listRowSeparator(.hidden)
     }
 }
 
