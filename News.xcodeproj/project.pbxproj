@@ -10,6 +10,8 @@
 		622BD9902C2A17840024E315 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622BD98F2C2A17840024E315 /* CategoryListView.swift */; };
 		622BD9922C2A25790024E315 /* TrendingFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622BD9912C2A25790024E315 /* TrendingFeedView.swift */; };
 		623BF1EB2C2C8C8B00C42853 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BF1EA2C2C8C8B00C42853 /* LocationManager.swift */; };
+		623BF1ED2C2C91EA00C42853 /* PersonalHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BF1EC2C2C91EA00C42853 /* PersonalHeaderViewModel.swift */; };
+		623BF1EF2C2C932000C42853 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623BF1EE2C2C932000C42853 /* Weather.swift */; };
 		62644D9B2C25AE9E00B09629 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62644D9A2C25AE9E00B09629 /* ArticleDetailView.swift */; };
 		626667AC2C25966500BC6E8C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626667AB2C25966500BC6E8C /* WebView.swift */; };
 		6266D9952C274A8000864C41 /* PersonalFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6266D9942C274A8000864C41 /* PersonalFeedView.swift */; };
@@ -42,6 +44,8 @@
 		622BD98F2C2A17840024E315 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		622BD9912C2A25790024E315 /* TrendingFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingFeedView.swift; sourceTree = "<group>"; };
 		623BF1EA2C2C8C8B00C42853 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		623BF1EC2C2C91EA00C42853 /* PersonalHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalHeaderViewModel.swift; sourceTree = "<group>"; };
+		623BF1EE2C2C932000C42853 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		62644D9A2C25AE9E00B09629 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		626667AB2C25966500BC6E8C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		6266D9942C274A8000864C41 /* PersonalFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFeedView.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 			children = (
 				62EB75012C24CB92009F923D /* Article.swift */,
 				62EB75032C24CD1F009F923D /* ArticleResponse.swift */,
+				623BF1EE2C2C932000C42853 /* Weather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				62EB75082C24CE2C009F923D /* ArticleListViewModel.swift */,
 				62716FC72C2B715D0030DD3F /* SearchViewModel.swift */,
 				62716FCF2C2C4E980030DD3F /* OnBoardingViewModel.swift */,
+				623BF1EC2C2C91EA00C42853 /* PersonalHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -260,7 +266,9 @@
 				62716FCC2C2C2EDD0030DD3F /* SourcesView.swift in Sources */,
 				62716FC42C2B69650030DD3F /* CategoryTitleView.swift in Sources */,
 				62EB74FC2C24C6B8009F923D /* ArticleListView.swift in Sources */,
+				623BF1EF2C2C932000C42853 /* Weather.swift in Sources */,
 				62716FCA2C2B76590030DD3F /* CustomTabBar.swift in Sources */,
+				623BF1ED2C2C91EA00C42853 /* PersonalHeaderViewModel.swift in Sources */,
 				622BD9922C2A25790024E315 /* TrendingFeedView.swift in Sources */,
 				62EB74EF2C24C514009F923D /* ContentView.swift in Sources */,
 				62EB75092C24CE2C009F923D /* ArticleListViewModel.swift in Sources */,
@@ -415,7 +423,8 @@
 				DEVELOPMENT_TEAM = 8X8P7X3D8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to provide real-time weather information";
+				INFOPLIST_FILE = News/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location services for real-time weather tracking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -446,7 +455,8 @@
 				DEVELOPMENT_TEAM = 8X8P7X3D8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to provide real-time weather information";
+				INFOPLIST_FILE = News/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location services for real-time weather tracking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

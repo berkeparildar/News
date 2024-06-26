@@ -9,8 +9,14 @@ import SwiftUI
 
 @main
 struct NewsApp: App {
+    @ObservedObject var locationManager = LocationManager.shared
     
-    init () { setupUserDefaults() }
+    init () {
+        if locationManager.userLocation == nil {
+            locationManager.requestLocationAuthorization()
+        }
+        setupUserDefaults()
+    }
     
     private func setupUserDefaults() {
         UserDefaults.standard.register(defaults: [
@@ -21,7 +27,11 @@ struct NewsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if locationManager.userLocation == nil {
+                EmptyView()
+            } else {
+                ContentView()
+            }
         }
     }
 }

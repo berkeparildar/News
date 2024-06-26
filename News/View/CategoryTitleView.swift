@@ -11,10 +11,14 @@ struct CategoryTitleView: View {
     let title: String
     var body: some View {
         VStack (alignment: .leading) {
-            Text(title)
-                .font(.system(size: 24))
-                .bold()
-            .foregroundStyle(.blue)
+            HStack {
+                Text(title)
+                    .font(.system(size: 24))
+                    .bold()
+                .foregroundStyle(.blue)
+                Image(systemName: "arrowtriangle.forward.fill")
+                    .foregroundStyle(.blue)
+            }
         }
         .listRowSeparator(.hidden)
     }

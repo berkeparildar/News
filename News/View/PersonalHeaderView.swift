@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct PersonalHeaderView: View {
+    @State private var currentDate = Date()
+    @StateObject private var viewModel = PersonalHeaderViewModel()
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
                 Text("Your briefing")
                     .font(.title)
                     .bold()
-                Text("Thursday, June 20")
+                Text(currentDate, format: Date.FormatStyle().day().month().weekday())
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .padding(.bottom, 2)
@@ -22,8 +25,10 @@ struct PersonalHeaderView: View {
             .padding(.leading, 4)
             Spacer()
             HStack {
-                Text("29'C")
+                Text(viewModel.weather)
                     .bold()
+                    .onAppear(perform: {
+                    })
                 Image(systemName: "sun.max")
                     .font(.title3)
                     .foregroundStyle(.yellow)
